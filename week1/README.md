@@ -17,9 +17,11 @@ The data team needs a quick sample of customer data for initial exploration.
 <summary>Solution</summary>
 
 ```sql
--- SELECT id, first_name, last_name, email, gender, country, age
+
+SELECT id, first_name, last_name, email, gender, country, age
 FROM `bigquery-public-data.thelook_ecommerce.users`
 LIMIT 10;
+
 ```
 
 </details>
