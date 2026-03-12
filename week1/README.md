@@ -22,6 +22,13 @@ The data team needs a quick sample of customer data for initial exploration.
 
 </details>
 
+<details>
+<summary>Output</summary>
+
+![Day 1 Output](../assets/week1/day01.png)
+
+</details>
+
 ---
 
 ### Day 2 — `WHERE`, `AND`
@@ -40,6 +47,13 @@ The marketing team wants to run a targeted campaign for female customers in the 
 
 </details>
 
+<details>
+<summary>Output</summary>
+
+![Day 2 Output](../assets/week1/day02.png)
+
+</details>
+
 ---
 
 ### Day 3 — `ORDER BY`
@@ -55,6 +69,13 @@ The product team wants to identify the most and least expensive items in the cat
 ```sql
 -- Day 3: ORDER BY
 ```
+
+</details>
+
+<details>
+<summary>Output</summary>
+
+![Day 3 Output](../assets/week1/day03.png)
 
 </details>
 
@@ -80,6 +101,13 @@ The team needs to know which countries are represented in the database and which
 
 </details>
 
+<details>
+<summary>Output</summary>
+
+![Day 4 Output](../assets/week1/day04.png)
+
+</details>
+
 ---
 
 ### Day 5 — Aggregate Functions
@@ -95,6 +123,13 @@ The manager needs an overall business statistics summary for the monthly meeting
 ```sql
 -- Day 5: COUNT, SUM, AVG, MAX, MIN
 ```
+
+</details>
+
+<details>
+<summary>Output</summary>
+
+![Day 5 Output](../assets/week1/day05.png)
 
 </details>
 
@@ -116,6 +151,13 @@ The business team wants to see sales performance broken down by product category
 
 </details>
 
+<details>
+<summary>Output</summary>
+
+![Day 6 Output](../assets/week1/day06.png)
+
+</details>
+
 ---
 
 ### Day 7 — `HAVING`
@@ -131,6 +173,13 @@ The analysis should only focus on categories that have already generated signifi
 ```sql
 -- Day 7: HAVING
 ```
+
+</details>
+
+<details>
+<summary>Output</summary>
+
+![Day 7 Output](../assets/week1/day07.png)
 
 </details>
 
