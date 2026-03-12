@@ -3,7 +3,7 @@
 ![SQL](https://img.shields.io/badge/SQL-BigQuery-4285F4?style=flat-square&logo=google-cloud&logoColor=white)
 ![Dataset](https://img.shields.io/badge/Dataset-TheLook%20eCommerce-orange?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat-square)
-![Days](https://img.shields.io/badge/Completed-0%2F30-lightgrey?style=flat-square)
+![Days](https://img.shields.io/badge/Completed-1%2F30-lightgrey?style=flat-square)
 
 A 30-day SQL learning journey using **Google BigQuery** and the **TheLook eCommerce** public dataset. Each day covers one SQL topic applied to a realistic business context.
 
@@ -48,7 +48,7 @@ Questions and solutions are organized by week. Click to navigate:
 
 ## Progress
 
-- [ ] Day 1 — SELECT, FROM, LIMIT
+- [x] Day 1 — SELECT, FROM, LIMIT
 - [ ] Day 2 — WHERE, AND
 - [ ] Day 3 — ORDER BY
 - [ ] Day 4 — DISTINCT, GROUP BY
