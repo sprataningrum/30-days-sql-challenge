@@ -89,4 +89,4 @@ Questions and solutions are organized by week. Click to navigate:
 
 ## Connect
 
-[LinkedIn]([https://www.linkedin.com/in/sariprataningrum]) • [GitHub]([https://github.com/sprataningrum])
+[LinkedIn](https://www.linkedin.com/in/sariprataningrum) • [GitHub](https://github.com/sprataningrum)
