@@ -46,7 +46,11 @@ The marketing team wants to run a targeted campaign for female customers in the 
 <summary>Solution</summary>
 
 ```sql
--- Day 2: WHERE, AND
+
+SELECT id, first_name, last_name, email, country, age
+FROM bigquery-public-data.thelook_ecommerce.users
+WHERE gender = 'F' AND country = 'United States';
+
 ```
 
 </details>
