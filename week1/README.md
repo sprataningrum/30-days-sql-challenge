@@ -75,7 +75,11 @@ The product team wants to identify the most and least expensive items in the cat
 <summary>Solution</summary>
 
 ```sql
--- Day 3: ORDER BY
+
+SELECT id, name, brand, category, retail_price
+FROM `bigquery-public-data.thelook_ecommerce.products`
+ORDER BY retail_price DESC;
+
 ```
 
 </details>
