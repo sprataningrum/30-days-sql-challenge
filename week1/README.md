@@ -119,7 +119,7 @@ FROM `bigquery-public-data.thelook_ecommerce.products`
 GROUP BY brand
 ORDER BY avg_retail_price DESC
 LIMIT 5;
-
+```
 
 </details>
 
