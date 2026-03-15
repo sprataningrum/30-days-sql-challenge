@@ -107,16 +107,30 @@ The team needs to know which countries are represented in the database and which
 ```sql
 -- Day 4a: DISTINCT
 
+SELECT DISTINCT(country)
+FROM `bigquery-public-data.thelook_ecommerce.users`
+ORDER BY country;
 
 -- Day 4b: GROUP BY + ORDER BY + LIMIT
-```
+
+SELECT brand, 
+        AVG(retail_price) AS avg_retail_price
+FROM `bigquery-public-data.thelook_ecommerce.products`
+GROUP BY brand
+ORDER BY avg_retail_price DESC
+LIMIT 5;
+
 
 </details>
 
 <details>
 <summary>Output</summary>
 
-![Day 4 Output](../assets/week1/day04.png)
+**Part a — Unique Countries**
+![Day 4a Output](../assets/week1/day04a.png)
+ 
+**Part b — Top 5 Brands by Average Price**
+![Day 4b Output](../assets/week1/day04b.png)
 
 </details>
 
