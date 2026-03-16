@@ -147,7 +147,14 @@ The manager needs an overall business statistics summary for the monthly meeting
 <summary>Solution</summary>
 
 ```sql
--- Day 5: COUNT, SUM, AVG, MAX, MIN
+
+SELECT COUNT(inventory_item_id) AS total_item,
+        SUM(sale_price) AS total_revenue,
+        AVG(sale_price) AS avg_sale_price,
+        MAX(sale_price) AS max_sale_price,
+        MIN(sale_price) AS min_sale_price
+FROM `bigquery-public-data.thelook_ecommerce.order_items`;
+
 ```
 
 </details>
