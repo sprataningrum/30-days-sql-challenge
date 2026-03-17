@@ -170,16 +170,23 @@ FROM `bigquery-public-data.thelook_ecommerce.order_items`;
 
 ### Day 6 — `GROUP BY`
 
-The business team wants to see sales performance broken down by product category.
-
-> From the `order_items` table, display the category name, number of items sold, total revenue, and average price per category.
+The business team wants to see sales performance broken down by order status.
+ 
+> From the `order_items` table, display the `status`, number of items, and total revenue per status.
 > Sort by **highest revenue**.
 
 <details>
 <summary>Solution</summary>
 
 ```sql
--- Day 6: GROUP BY
+
+SELECT status,
+        COUNT(inventory_item_id) AS total_item,
+        SUM(sale_price) AS total_revenue
+FROM `bigquery-public-data.thelook_ecommerce.order_items`
+GROUP BY status
+ORDER BY total_revenue DESC;
+
 ```
 
 </details>
