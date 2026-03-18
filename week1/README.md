@@ -202,16 +202,25 @@ ORDER BY total_revenue DESC;
 
 ### Day 7 — `HAVING`
 
-The analysis should only focus on categories that have already generated significant revenue.
-
-> Display product categories with their total revenue, **only for categories where total revenue exceeds $50,000**.
+The analysis should only focus on order statuses that have already generated significant revenue.
+ 
+> From the `order_items` table, display each `status` with its total revenue, **only for statuses where total revenue exceeds $1,000,000**.
 > Sort by highest revenue.
 
 <details>
 <summary>Solution</summary>
 
 ```sql
--- Day 7: HAVING
+
+-- DAY 7
+
+SELECT status,
+        SUM(sale_price) AS total_revenue
+FROM `bigquery-public-data.thelook_ecommerce.order_items`
+GROUP BY status
+HAVING total_revenue > 1000000
+ORDER BY total_revenue DESC; 
+
 ```
 
 </details>
