@@ -18,7 +18,20 @@ The team needs to combine order data with customer information for a shipping re
 <summary>Solution</summary>
 
 ```sql
--- Day 8: INNER JOIN
+
+SELECT o.order_id,
+      o.created_at,
+      o.status,
+      u.first_name,
+      u.last_name,
+      u.country, 
+      u.age
+FROM `bigquery-public-data.thelook_ecommerce.orders` AS o
+INNER JOIN `bigquery-public-data.thelook_ecommerce.users` AS u
+ON o.user_id = u.id
+ORDER BY created_at DESC
+LIMIT 20;
+
 ```
 
 </details>
