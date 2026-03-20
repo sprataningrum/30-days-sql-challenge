@@ -56,7 +56,17 @@ The CRM team wants to identify customers who have registered but never placed an
 <summary>Solution</summary>
 
 ```sql
--- Day 9: LEFT JOIN
+
+SELECT u.id AS user_id,
+      u.first_name,
+      u.last_name,
+      o.order_id,
+      o.status,
+      o.created_at
+FROM `bigquery-public-data.thelook_ecommerce.users` AS u
+LEFT JOIN `bigquery-public-data.thelook_ecommerce.orders` AS o
+ON u.id = o.user_id;
+
 ```
 
 </details>
