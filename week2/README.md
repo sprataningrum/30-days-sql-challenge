@@ -92,7 +92,22 @@ A detailed sales report requires information from multiple tables at once.
 <summary>Solution</summary>
 
 ```sql
--- Day 10: Multiple JOINs (4 tables)
+
+SELECT o.order_id,
+      o.created_at,
+      CONCAT(u.first_name, ' ', u.last_name) AS user_full_name,
+      p.name AS product_name,
+      oi.sale_price,
+      oi.status AS status_item
+FROM `bigquery-public-data.thelook_ecommerce.orders` AS o
+INNER JOIN `bigquery-public-data.thelook_ecommerce.users` AS u
+ ON o.user_id = u.id
+INNER JOIN `bigquery-public-data.thelook_ecommerce.order_items` AS oi
+ ON o.order_id = oi.order_id
+INNER JOIN `bigquery-public-data.thelook_ecommerce.products` AS p
+ ON oi.product_id = p.id
+LIMIT 15;
+
 ```
 
 </details>
