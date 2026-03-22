@@ -148,12 +148,13 @@ WHERE LOWER(name) LIKE '%women%';
 
 -- Day 11b: LIKE 'T%'
 
-SELECT brand, 
-        AVG(retail_price) AS avg_retail_price
+SELECT id,
+      name,
+      brand,
+      category,
+      retail_price
 FROM `bigquery-public-data.thelook_ecommerce.products`
-GROUP BY brand
-ORDER BY avg_retail_price DESC
-LIMIT 5;
+WHERE name LIKE 'T%';
 
 ```
 
