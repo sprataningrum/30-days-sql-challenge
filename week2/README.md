@@ -135,10 +135,26 @@ The product team wants to search for products based on name patterns.
 <summary>Solution</summary>
 
 ```sql
+
 -- Day 11a: LIKE '%Women%'
 
+SELECT id,
+      name,
+      brand,
+      category,
+      retail_price
+FROM `bigquery-public-data.thelook_ecommerce.products`
+WHERE LOWER(name) LIKE '%women%';
 
 -- Day 11b: LIKE 'T%'
+
+SELECT brand, 
+        AVG(retail_price) AS avg_retail_price
+FROM `bigquery-public-data.thelook_ecommerce.products`
+GROUP BY brand
+ORDER BY avg_retail_price DESC
+LIMIT 5;
+
 ```
 
 </details>
@@ -146,7 +162,11 @@ The product team wants to search for products based on name patterns.
 <details>
 <summary>Output</summary>
 
-![Day 11 Output](../assets/week2/day11.png)
+**Part a — LIKE '%Women%'**
+![Day 11a Output](../assets/week2/day11a.png)
+ 
+**Part b — LIKE 'T%'**
+![Day 11b Output](../assets/week2/day11b.png)
 
 </details>
 
