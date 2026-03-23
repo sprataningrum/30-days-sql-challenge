@@ -187,8 +187,22 @@ Analyze Q4 orders from specific countries.
 ```sql
 -- Day 12a: BETWEEN (date filter)
 
+SELECT order_id,
+      user_id,
+      created_at,
+      status
+FROM `bigquery-public-data.thelook_ecommerce.orders`
+WHERE DATE(created_at) BETWEEN '2023-10-01' AND '2023-12-31';
 
 -- Day 12b: IN
+
+SELECT id,
+      first_name,
+      last_name,
+      country
+FROM `bigquery-public-data.thelook_ecommerce.users`
+WHERE country IN ('China', 'Brasil', 'Germany');
+
 ```
 
 </details>
@@ -196,7 +210,11 @@ Analyze Q4 orders from specific countries.
 <details>
 <summary>Output</summary>
 
-![Day 12 Output](../assets/week2/day12.png)
+**Part a — BETWEEN (date filter)**
+![Day 12a Output](../assets/week2/day12a.png)
+ 
+**Part b — IN**
+![Day 12b Output](../assets/week2/day12b.png)
 
 </details>
 
