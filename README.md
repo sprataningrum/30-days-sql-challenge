@@ -3,7 +3,7 @@
 ![SQL](https://img.shields.io/badge/SQL-BigQuery-4285F4?style=flat-square&logo=google-cloud&logoColor=white)
 ![Dataset](https://img.shields.io/badge/Dataset-TheLook%20eCommerce-orange?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat-square)
-![Days](https://img.shields.io/badge/Completed-11%2F30-lightgrey?style=flat-square)
+![Days](https://img.shields.io/badge/Completed-13%2F30-lightgrey?style=flat-square)
 
 A 30-day SQL learning journey using **Google BigQuery** and the **TheLook eCommerce** public dataset. Each day covers one SQL topic applied to a realistic business context.
 
@@ -59,8 +59,8 @@ Questions and solutions are organized by week. Click to navigate:
 - [x] Day 9 — LEFT JOIN
 - [x] Day 10 — Multiple JOINs
 - [x] Day 11 — LIKE, Wildcards
-- [ ] Day 12 — IN, BETWEEN, Date Filter
-- [ ] Day 13 — CASE WHEN
+- [x] Day 12 — IN, BETWEEN, Date Filter
+- [x] Day 13 — CASE WHEN
 - [ ] Day 14 — NULL Handling, COALESCE
 - [ ] Day 15 — Subquery in WHERE
 - [ ] Day 16 — Subquery in FROM
