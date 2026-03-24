@@ -1,4 +1,4 @@
-# Week 2 — JOINs & Intermediate Filtering
+<img width="895" height="585" alt="image" src="https://github.com/user-attachments/assets/2ea47a62-7dc3-4ec6-bd84-17c372705381" /># Week 2 — JOINs & Intermediate Filtering
 
 [← Back to Main](../README.md)
 
@@ -236,7 +236,19 @@ The pricing team wants to segment products by price range for a discount strateg
 <summary>Solution</summary>
 
 ```sql
--- Day 13: CASE WHEN
+
+SELECT id,
+      name,
+      brand,
+      retail_price,
+      CASE WHEN retail_price < 20 THEN 'Budget'
+      WHEN retail_price >= 20 AND retail_price <= 99 THEN 'Mid-Range'
+      WHEN retail_price > 99 AND retail_price <= 299 THEN 'Premium'
+      ELSE 'Luxury'
+END AS price_segment
+FROM `bigquery-public-data.thelook_ecommerce.products`
+ORDER BY retail_price DESC;
+
 ```
 
 </details>
