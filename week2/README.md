@@ -296,11 +296,11 @@ FROM `bigquery-public-data.thelook_ecommerce.users`;
 <details>
 <summary>Output</summary>
 
-**Part a — IS NULL**
-![Day 14a Output](../assets/week2/day14a.png)
+**Part a — BETWEEN (date filter)**
+![Day 12a Output](../assets/week2/day12a.png)
  
-**Part b — COALESCE**
-![Day 14b Output](../assets/week2/day14b.png)
+**Part b — IN**
+![Day 12b Output](../assets/week2/day12b.png)
 
 </details>
 
