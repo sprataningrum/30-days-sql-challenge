@@ -297,9 +297,11 @@ FROM `bigquery-public-data.thelook_ecommerce.users`;
 <summary>Output</summary>
 
 **Part a — IS NULL**
+
 ![Day 14a Output](../assets/week2/day14a.png)
  
 **Part b — COALESCE**
+
 ![Day 14b Output](../assets/week2/day14b.png)
 
 </details>
