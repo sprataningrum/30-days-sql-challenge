@@ -1,5 +1,3 @@
-<img width="895" height="585" alt="image" src="https://github.com/user-attachments/assets/2ea47a62-7dc3-4ec6-bd84-17c372705381" /># Week 2 — JOINs & Intermediate Filtering
-
 [← Back to Main](../README.md)
 
 Week 2 focuses on combining tables with various JOIN types, advanced filtering, data transformation with CASE WHEN, and handling NULL values.
