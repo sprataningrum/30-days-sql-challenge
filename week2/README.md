@@ -274,8 +274,21 @@ Data needs to be cleaned before it can be used for further analysis.
 ```sql
 -- Day 14a: IS NULL
 
+SELECT id,
+      first_name,
+      last_name,
+      age
+FROM `bigquery-public-data.thelook_ecommerce.users`
+WHERE age IS NULL;
 
 -- Day 14b: COALESCE
+
+SELECT id,
+      first_name,
+      last_name,
+      COALESCE(age, 0) AS age
+FROM `bigquery-public-data.thelook_ecommerce.users`;
+
 ```
 
 </details>
@@ -283,7 +296,11 @@ Data needs to be cleaned before it can be used for further analysis.
 <details>
 <summary>Output</summary>
 
-![Day 14 Output](../assets/week2/day14.png)
+**Part a — IS NULL**
+![Day 14a Output](../assets/week2/day14a.png)
+ 
+**Part b — COALESCE**
+![Day 14b Output](../assets/week2/day14b.png)
 
 </details>
 
