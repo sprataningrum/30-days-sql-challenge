@@ -17,7 +17,16 @@ The sales team wants to focus only on customers who have already made a transact
 <summary>Solution</summary>
 
 ```sql
--- Day 15: Subquery in WHERE (IN)
+
+SELECT id,
+      first_name,
+      last_name,
+      email,
+      country
+FROM `bigquery-public-data.thelook_ecommerce.users`
+WHERE id IN (SELECT user_id
+      FROM `bigquery-public-data.thelook_ecommerce.orders`)
+
 ```
 
 </details>
