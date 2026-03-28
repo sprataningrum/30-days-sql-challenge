@@ -50,7 +50,16 @@ Management wants to know the average order activity per customer.
 <summary>Solution</summary>
 
 ```sql
--- Day 16: Subquery in FROM (derived table)
+
+SELECT
+      AVG(total_order) AS avg_order
+FROM (
+      SELECT user_id,
+            COUNT(order_id) AS total_order
+      FROM `bigquery-public-data.thelook_ecommerce.orders`
+      GROUP BY user_id
+      ) order_summary;
+
 ```
 
 </details>
@@ -75,7 +84,17 @@ Each product needs to be displayed alongside the context of its category.
 <summary>Solution</summary>
 
 ```sql
--- Day 17: Correlated Subquery in SELECT
+
+SELECT id,
+      name,
+      category,
+      retail_price,
+      (SELECT COUNT(*)
+            FROM `bigquery-public-data.thelook_ecommerce.products` AS p2
+            WHERE p1.category = p2.category) AS total_in_category
+FROM `bigquery-public-data.thelook_ecommerce.products` AS p1
+LIMIT 20;
+
 ```
 
 </details>
