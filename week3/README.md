@@ -118,7 +118,21 @@ The team wants a VIP customer report based on total spending.
 <summary>Solution</summary>
 
 ```sql
--- Day 18: CTE (WITH clause)
+
+WITH user_spending AS (
+      SELECT user_id,
+            SUM(sale_price) AS total_sale_price
+      FROM `bigquery-public-data.thelook_ecommerce.order_items`
+      GROUP BY user_id
+)
+SELECT CONCAT(u.first_name, ' ', u.last_name) AS user_full_name,
+      us.total_sale_price
+FROM user_spending AS us
+INNER JOIN `bigquery-public-data.thelook_ecommerce.users` AS u
+      ON us.user_id = u.id
+ORDER BY us.total_sale_price DESC
+LIMIT 10;
+
 ```
 
 </details>
