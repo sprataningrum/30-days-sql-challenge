@@ -157,7 +157,22 @@ The merchandising team wants to know the most expensive product in each category
 <summary>Solution</summary>
 
 ```sql
--- Day 19: ROW_NUMBER() OVER (PARTITION BY category)
+
+WITH rank_product AS (
+      SELECT category,
+            name,
+            brand,
+            retail_price,
+            ROW_NUMBER() OVER (
+                  PARTITION BY category
+                  ORDER BY retail_price DESC
+            ) AS rank_in_category
+      FROM `bigquery-public-data.thelook_ecommerce.products`
+)
+SELECT *
+FROM rank_product
+WHERE rank_in_category = 1;
+
 ```
 
 </details>
