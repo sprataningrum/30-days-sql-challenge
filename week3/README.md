@@ -196,7 +196,20 @@ A customer leaderboard based on total purchases, handling tied values properly.
 <summary>Solution</summary>
 
 ```sql
--- Day 20: RANK() vs DENSE_RANK()
+
+WITH user_spending AS ( 
+      SELECT user_id,
+            SUM(sale_price) AS total_user_spending
+      FROM `bigquery-public-data.thelook_ecommerce.order_items`
+      GROUP BY user_id
+)
+SELECT user_id,
+      total_user_spending,
+      RANK() OVER (ORDER BY total_user_spending DESC ) AS rank_normal,
+      DENSE_RANK() OVER (ORDER BY total_user_spending DESC) AS rank_dense
+FROM user_spending
+LIMIT 20;
+
 ```
 
 </details>
