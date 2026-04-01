@@ -3,7 +3,7 @@
 ![SQL](https://img.shields.io/badge/SQL-BigQuery-4285F4?style=flat-square&logo=google-cloud&logoColor=white)
 ![Dataset](https://img.shields.io/badge/Dataset-TheLook%20eCommerce-orange?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat-square)
-![Days](https://img.shields.io/badge/Completed-17%2F30-lightgrey?style=flat-square)
+![Days](https://img.shields.io/badge/Completed-21%2F30-lightgrey?style=flat-square)
 
 A 30-day SQL learning journey using **Google BigQuery** and the **TheLook eCommerce** public dataset. Each day covers one SQL topic applied to a realistic business context.
 
@@ -65,10 +65,10 @@ Questions and solutions are organized by week. Click to navigate:
 - [x] Day 15 — Subquery in WHERE
 - [x] Day 16 — Subquery in FROM
 - [x] Day 17 — Correlated Subquery
-- [ ] Day 18 — CTE (WITH Clause)
-- [ ] Day 19 — ROW_NUMBER()
-- [ ] Day 20 — RANK(), DENSE_RANK()
-- [ ] Day 21 — Running Total (SUM OVER)
+- [x] Day 18 — CTE (WITH Clause)
+- [x] Day 19 — ROW_NUMBER()
+- [x] Day 20 — RANK(), DENSE_RANK()
+- [x] Day 21 — Running Total (SUM OVER)
 - [ ] Day 22 — LAG(), LEAD()
 - [ ] Day 23 — PARTITION BY
 - [ ] Day 24 — String Functions
