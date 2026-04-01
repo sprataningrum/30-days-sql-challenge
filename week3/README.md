@@ -234,7 +234,21 @@ The CFO wants to see the cumulative monthly revenue throughout 2023.
 <summary>Solution</summary>
 
 ```sql
--- Day 21: SUM() OVER (ORDER BY month) — Running Total
+
+WITH monthly AS (
+      SELECT
+            EXTRACT(MONTH FROM created_at) AS month,
+            SUM(sale_price) AS monthly_revenue
+      FROM `bigquery-public-data.thelook_ecommerce.order_items`
+      WHERE EXTRACT(YEAR FROM created_at) = 2023
+      GROUP BY month
+)
+SELECT month,
+      monthly_revenue,
+      SUM(monthly_revenue) OVER(ORDER BY month) AS cumulative_revenue
+FROM monthly
+ORDER BY month;
+
 ```
 
 </details>
