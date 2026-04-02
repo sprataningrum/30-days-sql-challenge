@@ -16,7 +16,31 @@ The finance team wants to compare monthly revenue performance against the previo
 <summary>Solution</summary>
 
 ```sql
--- Day 22: LAG() for Month-over-Month growth
+
+WITH monthly AS (
+  SELECT 
+    FORMAT_DATE('%Y-%m', DATE(created_at)) AS year_month,
+    SUM(sale_price) AS monthly_revenue
+  FROM `bigquery-public-data.thelook_ecommerce.order_items`
+  WHERE EXTRACT(YEAR FROM created_at) IN (2022, 2023)
+  GROUP BY year_month
+),
+lagged AS (
+  SELECT year_month,
+    monthly_revenue,
+    LAG(monthly_revenue) OVER (ORDER BY year_month) AS prev_month_revenue
+  FROM monthly
+)
+SELECT year_month,
+  monthly_revenue,
+  prev_month_revenue,
+  monthly_revenue - prev_month_revenue AS revenue_growth,
+  ROUND(
+    SAFE_DIVIDE(monthly_revenue - prev_month_revenue,prev_month_revenue) * 100, 2
+    ) AS growth_pct
+FROM lagged
+ORDER BY year_month;
+
 ```
 
 </details>
