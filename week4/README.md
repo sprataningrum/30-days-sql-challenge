@@ -65,7 +65,23 @@ The regional team wants to see each country's revenue contribution against the g
 <summary>Solution</summary>
 
 ```sql
--- Day 23: SUM() OVER () without PARTITION = global total
+
+WITH country_revenue AS (
+  SELECT country,
+    SUM(sale_price) AS total_revenue_country
+  FROM `bigquery-public-data.thelook_ecommerce.order_items` AS oi
+  INNER JOIN `bigquery-public-data.thelook_ecommerce.users` AS u
+    ON oi.user_id = u.id
+  GROUP BY country
+)
+SELECT country,
+  total_revenue_country,
+  SUM(total_revenue_country) OVER () AS global_revenue,
+  SAFE_DIVIDE(total_revenue_country, SUM(total_revenue_country) OVER ()) AS pct_contribution
+FROM country_revenue
+ORDER BY total_revenue_country DESC
+LIMIT 15;
+
 ```
 
 </details>
