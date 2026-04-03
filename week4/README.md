@@ -67,8 +67,8 @@ The regional team wants to see each country's revenue contribution against the g
 ```sql
 
 WITH country_revenue AS (
-  SELECT country,
-    SUM(sale_price) AS total_revenue_country
+  SELECT u.country,
+    SUM(oi.sale_price) AS total_revenue_country
   FROM `bigquery-public-data.thelook_ecommerce.order_items` AS oi
   INNER JOIN `bigquery-public-data.thelook_ecommerce.users` AS u
     ON oi.user_id = u.id
