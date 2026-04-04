@@ -111,7 +111,15 @@ The data engineering team needs text column transformation and normalization.
 <summary>Solution</summary>
 
 ```sql
--- Day 24: CONCAT, SUBSTR, STRPOS, LENGTH, UPPER
+
+SELECT id,
+  CONCAT(first_name, ' ', last_name) AS full_name,
+  SUBSTR(email, STRPOS(email, '@') + 1) AS email_domain,
+  LENGTH(CONCAT(first_name, ' ', last_name)) AS name_length,
+  UPPER(country) AS upper_country
+FROM `bigquery-public-data.thelook_ecommerce.users`
+LIMIT 15;
+
 ```
 
 </details>
