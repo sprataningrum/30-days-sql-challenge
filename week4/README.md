@@ -147,7 +147,21 @@ Analyze customer loyalty based on how long they've been registered and their age
 <summary>Solution</summary>
 
 ```sql
--- Day 25: DATE_DIFF, EXTRACT, FORMAT_DATE, CASE WHEN
+
+SELECT id,
+  first_name,
+  last_name,
+  created_at,
+  DATE_DIFF(CURRENT_DATE(), DATE(created_at), DAY) AS days_since_joined,
+  EXTRACT(YEAR FROM created_at) AS join_year,
+  FORMAT_DATE('%B', DATE(created_at)) AS join_month_name,
+  CASE
+    WHEN age < 25 THEN '< 25'
+    WHEN age >= 25 AND age <= 40 THEN '25-40'
+    ELSE '> 40'
+    END AS age_group
+FROM `bigquery-public-data.thelook_ecommerce.users`
+
 ```
 
 </details>
