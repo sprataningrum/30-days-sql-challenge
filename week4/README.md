@@ -237,7 +237,19 @@ Find pairs of customers with similar characteristics from the same city.
 <summary>Solution</summary>
 
 ```sql
--- Day 27: Self JOIN
+
+SELECT 
+  u1.id AS user_1,
+  u2.id AS user_2,
+  u1.city,
+  u1.age,
+  u2.age
+FROM `bigquery-public-data.thelook_ecommerce.users` AS u1
+JOIN `bigquery-public-data.thelook_ecommerce.users` AS u2
+  ON u1.id < u2.id AND u1.city = u2.city
+WHERE ABS(u1.age - u2.age) = 1
+LIMIT 15;
+
 ```
 
 </details>
