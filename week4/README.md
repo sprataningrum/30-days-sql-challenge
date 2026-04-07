@@ -186,7 +186,34 @@ A simple cohort analysis to measure customer retention across years.
 <summary>Solution</summary>
 
 ```sql
--- Day 26: Multiple CTEs — Cohort Retention Analysis
+
+WITH users_first_order_2022 AS (
+  SELECT
+  user_id,
+  MIN(DATE(created_at)) as first_order_date
+  FROM `bigquery-public-data.thelook_ecommerce.orders`
+  GROUP BY user_id
+  HAVING EXTRACT(YEAR FROM MIN(DATE(created_at))) = 2022 
+),
+users_repeat_2023 AS (
+  SELECT
+  DISTINCT ufo.user_id
+  FROM users_first_order_2022 AS ufo
+  INNER JOIN `bigquery-public-data.thelook_ecommerce.orders` AS o
+    ON ufo.user_id = o.user_id
+  WHERE EXTRACT(YEAR FROM o.created_at) = 2023
+),
+cohort_summary AS (
+  SELECT
+  (SELECT COUNT(*) FROM users_first_order_2022) AS total_users_2022,
+  (SELECT COUNT(*) FROM users_repeat_2023) AS repeat_users_2023,
+  SAFE_DIVIDE(
+    (SELECT COUNT(*) FROM users_repeat_2023), (SELECT COUNT(*) FROM users_first_order_2022)
+  ) AS retention_rate
+)
+SELECT *
+FROM cohort_summary;
+
 ```
 
 </details>
