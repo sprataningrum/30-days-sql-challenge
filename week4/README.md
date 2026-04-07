@@ -242,8 +242,8 @@ SELECT
   u1.id AS user_1,
   u2.id AS user_2,
   u1.city,
-  u1.age,
-  u2.age
+  u1.age AS user_1_age,
+  u2.age AS user_2_age
 FROM `bigquery-public-data.thelook_ecommerce.users` AS u1
 JOIN `bigquery-public-data.thelook_ecommerce.users` AS u2
   ON u1.id < u2.id AND u1.city = u2.city
