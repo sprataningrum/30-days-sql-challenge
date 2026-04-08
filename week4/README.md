@@ -273,7 +273,18 @@ Management wants a summary of order counts by status in a pivot table format.
 <summary>Solution</summary>
 
 ```sql
--- Day 28: Manual PIVOT with SUM(CASE WHEN ...)
+
+SELECT 
+    FORMAT_DATE('%Y-%m', DATE(created_at)) AS year_month,
+    SUM(CASE WHEN status = 'Complete' THEN 1 ELSE 0 END) AS complete_orders,
+    SUM(CASE WHEN status = 'Cancelled' THEN 1 ELSE 0 END) AS cancelled_orders,
+    SUM(CASE WHEN status = 'Returned' THEN 1 ELSE 0 END) AS returned_orders,
+    SUM(CASE WHEN status = 'Processing' THEN 1 ELSE 0 END) AS processing_orders
+FROM `bigquery-public-data.thelook_ecommerce.orders`
+WHERE EXTRACT(YEAR FROM created_at) = 2023
+GROUP BY year_month
+ORDER BY year_month;
+
 ```
 
 </details>
