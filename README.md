@@ -3,7 +3,7 @@
 ![SQL](https://img.shields.io/badge/SQL-BigQuery-4285F4?style=flat-square&logo=google-cloud&logoColor=white)
 ![Dataset](https://img.shields.io/badge/Dataset-TheLook%20eCommerce-orange?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat-square)
-![Days](https://img.shields.io/badge/Completed-26%2F30-lightgrey?style=flat-square)
+![Days](https://img.shields.io/badge/Completed-29%2F30-lightgrey?style=flat-square)
 
 A 30-day SQL learning journey using **Google BigQuery** and the **TheLook eCommerce** public dataset. Each day covers one SQL topic applied to a realistic business context.
 
@@ -74,9 +74,9 @@ Questions and solutions are organized by week. Click to navigate:
 - [x] Day 24 — String Functions
 - [x] Day 25 — Date & Time Functions
 - [x] Day 26 — Multiple CTEs Chaining
-- [ ] Day 27 — Self JOIN
-- [ ] Day 28 — PIVOT with CASE WHEN
-- [ ] Day 29 — Query Optimization
+- [x] Day 27 — Self JOIN
+- [x] Day 28 — PIVOT with CASE WHEN
+- [x] Day 29 — Query Optimization
 - [ ] Day 30 — Mini Project: End-to-End Analysis
 
 ---
