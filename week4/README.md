@@ -314,8 +314,35 @@ Increasingly complex analytical queries need to be optimized to run efficiently 
 ```sql
 -- Day 29a: Original Query
 
+SELECT 
+  p.brand,
+  p.category,
+  SUM(oi.sale_price) AS total_revenue
+FROM `bigquery-public-data.thelook_ecommerce.order_items` AS oi
+INNER JOIN `bigquery-public-data.thelook_ecommerce.products` AS p
+ ON oi.product_id = p.id
+WHERE oi.status = 'Complete'
+GROUP BY p.brand, p.category;
+
 
 -- Day 29b: Optimized Query (CTE + early filter)
+
+WITH filtered_orders AS (
+  SELECT
+    product_id,
+    sale_price
+  FROM `bigquery-public-data.thelook_ecommerce.order_items`
+  WHERE status = 'Complete'
+)
+SELECT 
+  p.category,
+  p.brand,
+  SUM(fo.sale_price) AS total_revenue
+  FROM filtered_orders AS fo
+  INNER JOIN `bigquery-public-data.thelook_ecommerce.products` AS p
+    ON fo.product_id = p.id
+  GROUP BY p.category, p.brand;
+
 ```
 
 </details>
