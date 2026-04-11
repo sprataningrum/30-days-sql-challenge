@@ -406,6 +406,21 @@ FROM lagged;
 
 -- Part 2: Top 10 Customers
 
+SELECT
+  oi.user_id,
+  u.country,
+  SUM(oi.sale_price) AS total_revenue,
+  COUNT(DISTINCT oi.order_id) AS total_orders,
+  SAFE_DIVIDE(SUM(oi.sale_price), COUNT(DISTINCT oi.order_id)) AS avg_order_value
+FROM`bigquery-public-data.thelook_ecommerce.order_items` AS oi
+INNER JOIN `bigquery-public-data.thelook_ecommerce.orders` AS o
+  ON oi.order_id = o.order_id
+INNER JOIN `bigquery-public-data.thelook_ecommerce.users` AS u
+  ON o.user_id = u.id
+WHERE oi.status = 'Complete'
+GROUP BY oi.user_id, u.country
+ORDER BY total_revenue DESC
+LIMIT 10;
 
 -- Part 3: Product Performance
 
