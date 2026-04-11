@@ -380,6 +380,29 @@ A comprehensive business analysis as the final challenge — ready to be showcas
 ```sql
 -- Part 1: Revenue Trend
 
+WITH revenue AS (
+  SELECT
+    DATE(DATE_TRUNC(created_at, MONTH)) AS order_month,
+    SUM(sale_price) AS monthly_revenue
+  FROM`bigquery-public-data.thelook_ecommerce.order_items`
+  WHERE EXTRACT(YEAR FROM created_at) IN (2022, 2023) AND status = 'Complete'
+  GROUP BY order_month
+),
+lagged AS (
+  SELECT
+    order_month,
+    monthly_revenue,
+    LAG(monthly_revenue) OVER (ORDER BY order_month) AS prev_month_revenue
+  FROM revenue
+)
+SELECT 
+  order_month,
+  monthly_revenue,
+  prev_month_revenue,
+  SAFE_DIVIDE((monthly_revenue - prev_month_revenue), prev_month_revenue) AS mom_growth,
+  SUM(monthly_revenue) OVER (ORDER BY order_month) AS cumulative_revenue
+FROM lagged;
+
 
 -- Part 2: Top 10 Customers
 
