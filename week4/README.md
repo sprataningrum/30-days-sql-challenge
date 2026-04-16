@@ -424,7 +424,6 @@ LIMIT 10;
 
 -- Part 3: Product Performance
 
--- DAY 30 bagian 3
 WITH product_revenue AS (
   SELECT
     p.category,
