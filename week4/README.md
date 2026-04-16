@@ -424,6 +424,62 @@ LIMIT 10;
 
 -- Part 3: Product Performance
 
+-- DAY 30 bagian 3
+WITH product_revenue AS (
+  SELECT
+    p.category,
+    oi.product_id,
+    p.name AS product_name,
+    SUM(oi.sale_price) AS revenue
+  FROM `bigquery-public-data.thelook_ecommerce.order_items` AS oi
+  INNER JOIN `bigquery-public-data.thelook_ecommerce.products` AS p
+    ON oi.product_id = p.id
+  WHERE oi.status = 'Complete'
+  GROUP BY p.category, oi.product_id, p.name
+),
+ranked_products AS (
+  SELECT
+    category,
+    product_id,
+    product_name,
+    revenue,
+    RANK() OVER (PARTITION BY category ORDER BY revenue DESC) AS product_rank
+  FROM product_revenue
+), 
+top_products AS (
+  SELECT *
+  FROM ranked_products
+  WHERE product_rank <= 3  
+),
+category_revenue AS (
+  SELECT 
+    category,
+    SUM(revenue) AS total_revenue
+  FROM product_revenue
+  GROUP BY category
+),
+rank_categories AS (
+  SELECT
+    category,
+    total_revenue,
+    RANK() OVER (ORDER BY total_revenue DESC) AS category_rank
+  FROM category_revenue
+),
+top_categories AS (
+  SELECT *
+  FROM rank_categories
+  WHERE category_rank <= 5
+)
+SELECT
+  tp.category,
+  tp.product_name,
+  tp.revenue,
+  tp.product_rank,
+  tc.category_rank
+FROM top_products AS tp
+JOIN top_categories AS tc
+  USING (category)
+ORDER BY category_rank, product_rank;
 
 -- Part 4: Order Status Summary
 ```
