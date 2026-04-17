@@ -356,7 +356,12 @@ SELECT
 <details>
 <summary>Output</summary>
 
-![Day 29 Output](../assets/week4/day29.png)
+**Part a — Original Query**
+![Day 29a Output](../assets/week4/day29a.png)
+ 
+**Part b — Optimized Query (CTE + early filter)**
+![Day 29b Output](../assets/week4/day29b.png)
+
 
 </details>
 
@@ -506,16 +511,16 @@ ORDER BY total_orders DESC;
 <summary>Output</summary>
 
 **Part 1 — Revenue Trend**
-![Day Part 1 Output](../assets/week2/day30a.png)
+![Day Part 1 Output](../assets/week4/day30a.png)
  
 **Part 2 — Top 10 Customers**
-![Day Part 2 Output](../assets/week2/day30b.png)
+![Day Part 2 Output](../assets/week4/day30b.png)
 
 **Part 3 —  Product Performance**
-![Day Part 3 Output](../assets/week2/day30c.png)
+![Day Part 3 Output](../assets/week4/day30c.png)
  
 **Part 4 — Order Status Summary**
-![Day Part 4 Output](../assets/week2/day30d.png)
+![Day Part 4 Output](../assets/week4/day30d.png)
 
 </details>
 
