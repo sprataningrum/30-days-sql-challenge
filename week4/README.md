@@ -505,7 +505,17 @@ ORDER BY total_orders DESC;
 <details>
 <summary>Output</summary>
 
-![Day 30 Output](../assets/week4/day30.png)
+**Part 1 — Revenue Trend**
+![Day Part 1 Output](../assets/week2/day30a.png)
+ 
+**Part 2 — Top 10 Customers**
+![Day Part 2 Output](../assets/week2/day30b.png)
+
+**Part 3 —  Product Performance**
+![Day Part 3 Output](../assets/week2/day30c.png)
+ 
+**Part 4 — Order Status Summary**
+![Day Part 4 Output](../assets/week2/day30d.png)
 
 </details>
 
