@@ -18,7 +18,8 @@ The sales team wants to focus only on customers who have already made a transact
 
 ```sql
 
-SELECT id,
+SELECT
+      id,
       first_name,
       last_name,
       email,
@@ -54,7 +55,8 @@ Management wants to know the average order activity per customer.
 SELECT
       AVG(total_order) AS avg_order
 FROM (
-      SELECT user_id,
+      SELECT
+            user_id,
             COUNT(order_id) AS total_order
       FROM `bigquery-public-data.thelook_ecommerce.orders`
       GROUP BY user_id
@@ -85,13 +87,15 @@ Each product needs to be displayed alongside the context of its category.
 
 ```sql
 
-SELECT id,
+SELECT
+      id,
       name,
       category,
       retail_price,
-      (SELECT COUNT(*)
-            FROM `bigquery-public-data.thelook_ecommerce.products` AS p2
-            WHERE p1.category = p2.category) AS total_in_category
+      (SELECT
+            COUNT(*)
+      FROM `bigquery-public-data.thelook_ecommerce.products` AS p2
+      WHERE p1.category = p2.category) AS total_in_category
 FROM `bigquery-public-data.thelook_ecommerce.products` AS p1
 LIMIT 20;
 
@@ -120,12 +124,14 @@ The team wants a VIP customer report based on total spending.
 ```sql
 
 WITH user_spending AS (
-      SELECT user_id,
+      SELECT
+            user_id,
             SUM(sale_price) AS total_sale_price
       FROM `bigquery-public-data.thelook_ecommerce.order_items`
       GROUP BY user_id
 )
-SELECT CONCAT(u.first_name, ' ', u.last_name) AS user_full_name,
+SELECT
+      CONCAT(u.first_name, ' ', u.last_name) AS user_full_name,
       us.total_sale_price
 FROM user_spending AS us
 INNER JOIN `bigquery-public-data.thelook_ecommerce.users` AS u
@@ -159,14 +165,12 @@ The merchandising team wants to know the most expensive product in each category
 ```sql
 
 WITH rank_product AS (
-      SELECT category,
+      SELECT
+            category,
             name,
             brand,
             retail_price,
-            ROW_NUMBER() OVER (
-                  PARTITION BY category
-                  ORDER BY retail_price DESC
-            ) AS rank_in_category
+            ROW_NUMBER() OVER (PARTITION BY category ORDER BY retail_price DESC) AS rank_in_category
       FROM `bigquery-public-data.thelook_ecommerce.products`
 )
 SELECT *
@@ -198,12 +202,14 @@ A customer leaderboard based on total purchases, handling tied values properly.
 ```sql
 
 WITH user_spending AS ( 
-      SELECT user_id,
+      SELECT
+            user_id,
             SUM(sale_price) AS total_user_spending
       FROM `bigquery-public-data.thelook_ecommerce.order_items`
       GROUP BY user_id
 )
-SELECT user_id,
+SELECT
+      user_id,
       total_user_spending,
       RANK() OVER (ORDER BY total_user_spending DESC ) AS rank_normal,
       DENSE_RANK() OVER (ORDER BY total_user_spending DESC) AS rank_dense
@@ -243,7 +249,8 @@ WITH monthly AS (
       WHERE EXTRACT(YEAR FROM created_at) = 2023
       GROUP BY month
 )
-SELECT month,
+SELECT
+      month,
       monthly_revenue,
       SUM(monthly_revenue) OVER(ORDER BY month) AS cumulative_revenue
 FROM monthly
