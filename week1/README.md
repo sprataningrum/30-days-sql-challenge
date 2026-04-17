@@ -18,7 +18,14 @@ The data team needs a quick sample of customer data for initial exploration.
 
 ```sql
 
-SELECT id, first_name, last_name, email, gender, country, age
+SELECT
+        id,
+        first_name,
+        last_name,
+        email,
+        gender,
+        country,
+        age
 FROM `bigquery-public-data.thelook_ecommerce.users`
 LIMIT 10;
 
@@ -47,7 +54,13 @@ The marketing team wants to run a targeted campaign for female customers in the 
 
 ```sql
 
-SELECT id, first_name, last_name, email, country, age
+SELECT
+        id,
+        first_name,
+        last_name,
+        email,
+        country,
+        age
 FROM bigquery-public-data.thelook_ecommerce.users
 WHERE gender = 'F' AND country = 'United States';
 
@@ -76,7 +89,12 @@ The product team wants to identify the most and least expensive items in the cat
 
 ```sql
 
-SELECT id, name, brand, category, retail_price
+SELECT
+        id,
+        name,
+        brand,
+        category,
+        retail_price
 FROM `bigquery-public-data.thelook_ecommerce.products`
 ORDER BY retail_price DESC;
 
@@ -107,13 +125,15 @@ The team needs to know which countries are represented in the database and which
 ```sql
 -- Day 4a: DISTINCT
 
-SELECT DISTINCT(country)
+SELECT
+        DISTINCT(country)
 FROM `bigquery-public-data.thelook_ecommerce.users`
 ORDER BY country;
 
 -- Day 4b: GROUP BY + ORDER BY + LIMIT
 
-SELECT brand, 
+SELECT
+        brand, 
         AVG(retail_price) AS avg_retail_price
 FROM `bigquery-public-data.thelook_ecommerce.products`
 GROUP BY brand
@@ -148,7 +168,8 @@ The manager needs an overall business statistics summary for the monthly meeting
 
 ```sql
 
-SELECT COUNT(inventory_item_id) AS total_item,
+SELECT
+        COUNT(inventory_item_id) AS total_item,
         SUM(sale_price) AS total_revenue,
         AVG(sale_price) AS avg_sale_price,
         MAX(sale_price) AS max_sale_price,
@@ -180,7 +201,8 @@ The business team wants to see sales performance broken down by order status.
 
 ```sql
 
-SELECT status,
+SELECT
+        status,
         COUNT(inventory_item_id) AS total_item,
         SUM(sale_price) AS total_revenue
 FROM `bigquery-public-data.thelook_ecommerce.order_items`
@@ -214,7 +236,8 @@ The analysis should only focus on order statuses that have already generated sig
 
 -- DAY 7
 
-SELECT status,
+SELECT
+        status,
         SUM(sale_price) AS total_revenue
 FROM `bigquery-public-data.thelook_ecommerce.order_items`
 GROUP BY status
