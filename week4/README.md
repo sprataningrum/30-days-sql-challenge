@@ -357,6 +357,7 @@ SELECT
 <summary>Output</summary>
 
 **Part a — Original Query**
+
 ![Day 29a Output](../assets/week4/day29a.png)
  
 **Part b — Optimized Query (CTE + early filter)**
