@@ -363,6 +363,8 @@ SELECT
 **Part b — Optimized Query (CTE + early filter)**
 ![Day 29b Output](../assets/week4/day29b.png)
 
+**Part c — Performance Analysis**
+> *I tried optimizing the query by applying early filtering, using CTEs, and selecting only the necessary columns, but there was no significant difference in bytes processed or rows scanned. This is likely because the dataset is still relatively small and BigQuery’s optimizer already handles the query efficiently. Even so, the optimized version is still better in terms of structure and would be more impactful when working with larger datasets.*
 
 </details>
 
