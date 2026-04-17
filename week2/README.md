@@ -17,7 +17,8 @@ The team needs to combine order data with customer information for a shipping re
 
 ```sql
 
-SELECT o.order_id,
+SELECT
+      o.order_id,
       o.created_at,
       o.status,
       u.first_name,
@@ -55,7 +56,8 @@ The CRM team wants to identify customers who have registered but never placed an
 
 ```sql
 
-SELECT u.id AS user_id,
+SELECT
+      u.id AS user_id,
       u.first_name,
       u.last_name,
       o.order_id,
@@ -91,7 +93,8 @@ A detailed sales report requires information from multiple tables at once.
 
 ```sql
 
-SELECT o.order_id,
+SELECT
+      o.order_id,
       o.created_at,
       CONCAT(u.first_name, ' ', u.last_name) AS user_full_name,
       p.name AS product_name,
@@ -136,7 +139,8 @@ The product team wants to search for products based on name patterns.
 
 -- Day 11a: LIKE '%Women%'
 
-SELECT id,
+SELECT
+      id,
       name,
       brand,
       category,
@@ -146,7 +150,8 @@ WHERE LOWER(name) LIKE '%women%';
 
 -- Day 11b: LIKE 'T%'
 
-SELECT id,
+SELECT
+      id,
       name,
       brand,
       category,
@@ -185,7 +190,8 @@ Analyze Q4 orders from specific countries.
 ```sql
 -- Day 12a: BETWEEN (date filter)
 
-SELECT order_id,
+SELECT
+      order_id,
       user_id,
       created_at,
       status
@@ -194,7 +200,8 @@ WHERE DATE(created_at) BETWEEN '2023-10-01' AND '2023-12-31';
 
 -- Day 12b: IN
 
-SELECT id,
+SELECT
+      id,
       first_name,
       last_name,
       country
@@ -235,7 +242,8 @@ The pricing team wants to segment products by price range for a discount strateg
 
 ```sql
 
-SELECT id,
+SELECT
+      id,
       name,
       brand,
       retail_price,
@@ -274,7 +282,8 @@ Data needs to be cleaned before it can be used for further analysis.
 ```sql
 -- Day 14a: IS NULL
 
-SELECT id,
+SELECT
+      id,
       first_name,
       last_name,
       age
@@ -283,7 +292,8 @@ WHERE age IS NULL;
 
 -- Day 14b: COALESCE
 
-SELECT id,
+SELECT
+      id,
       first_name,
       last_name,
       COALESCE(age, 0) AS age
