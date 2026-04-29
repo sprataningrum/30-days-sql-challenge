@@ -83,7 +83,14 @@ Questions and solutions are organized by week. Click to navigate:
 
 ## Key Learnings
 
-> *To be filled in after the challenge is complete.*
+- I realized that SQL is more about how you think than just memorizing syntax  
+- I moved from basic `SELECT` queries to using window functions and multiple CTEs  
+- Using CTEs helped me structure complex queries and made them easier to read  
+- I still find joins challenging, especially deciding the correct setup for a `LEFT JOIN`  
+- I learned that breaking logic into smaller parts is better than forcing everything into one query  
+- I ran into BigQuery limitations, such as not being able to use nested aggregate functions  
+- `SAFE_DIVIDE` is simple but very useful for avoiding errors  
+- I need more practice with complex SQL problems to strengthen my analytical thinking  
 
 ---
 
